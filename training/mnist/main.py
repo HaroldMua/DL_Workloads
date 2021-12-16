@@ -19,14 +19,6 @@ def get_compiled_model():
                 metrics=['sparse_categorical_accuracy'])
     return model
 
-
-def get_compiled_model():
-    model = get_uncompiled_model()
-    model.compile(optimizer=keras.optimizers.RMSprop(learning_rate=1e-3),
-                loss=keras.losses.SparseCategoricalCrossentropy(from_logits=True),
-                metrics=['sparse_categorical_accuracy'])
-    return model
-
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--epochs", default=5, type=int, help="number of epochs to train model for")
